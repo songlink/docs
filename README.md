@@ -6,5 +6,5 @@ Welcome to Songlink! Below you'll find more information about our different prod
 - [FAQ](faq.md) - A collection of commonly asked (and answered!) questions.
 - [Embed](embed.md) - Learn how to embed the Songlink experience in your blog, publication or website.
 - [API](api-v1-alpha.1.md) - Documentation for our public API, which can help you build music apps.
-- [Redirect URLs](redirect-urls.md) - URLs that automatically redirect your users to a specified streaming platform. It's like our API Lite™️
+- [Redirect URLs](redirect-urls.md) - URLs that automatically redirect your users to a specified streaming platform.
 - [Refunds](refunds.md) - Learn about our refund policy for our paid products.
