@@ -66,9 +66,7 @@ yandex
 spinrilla
 ```
 
-## Endpoints
-
-### `GET /links`
+## `GET /links` endpoint
 
 This is the main (and right now, only) 😅 endpoint that allows you to fetch the matching links for a given streaming entity. For example, with this endpoint you can provide the URL of an Apple Music track and receive the URLs and data for that song on Spotify, YouTube, Tidal and more.
 
@@ -409,3 +407,7 @@ type APIProvider =
     }
 }
 ```
+
+## Error Codes
+
+We use conventional HTTP response codes to indicate the success or failure of an API request. In general: codes in the `2xx` range indicate success. Codes in the `4xx` range indicate an error that failed given the information provided (e.g., a required parameter was omitted, an incorrect or stale entity URL was provided, etc.). Codes in the 5xx range indicate an error with Songlink's servers.
