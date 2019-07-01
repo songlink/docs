@@ -80,7 +80,7 @@ Replace <key> with your API key.
 curl -X GET "https://api.song.link/v1-alpha.1/links?url=spotify%3Atrack%3A0Jcij1eWd5bDMU5iPbxe2i&userCountry=US&key=<key>"
 ```
 
-### Query params
+### Query Params
 
 **`url`** -- The URL of a valid song or album from any of our supported platforms. It is safest to encode the URL, e.g. with `encodeURIComponent()` 
 
@@ -92,7 +92,116 @@ curl -X GET "https://api.song.link/v1-alpha.1/links?url=spotify%3Atrack%3A0Jcij1
 
 **`id`** -- The unique identifier of the streaming entity, e.g. `1443109064` which is an iTunes ID. If `url` is not provided, you must provide `platform`, `type` and `id`.
 
-### Response
+### Response Structure/Types
+
+```js
+// @flow
+
+type Response = {
+  // The unique ID for the input entity that was supplied in the request. The
+  // data for this entity, such as title, artistName, etc. will be found in
+  // an object at `nodesByUniqueId[entityUniqueId]`
+  entityUniqueId: string,
+
+  // The userCountry query param that was supplied in the request. It signals
+  // the country/availability we use to query the streaming platforms. Defaults
+  // to 'US' if no userCountry supplied in the request.
+  //
+  // NOTE: As a fallback, our service may respond with matches that were found
+  // in a locale other than the userCountry supplied
+  userCountry: string,
+
+  // A URL that will render the Songlink page for this entity
+  pageUrl: string,
+
+  // A collection of objects. Each key is a platform, and each value is an
+  // object that contains data for linking to the match
+  linksByPlatform: {
+    // Each key in `linksByPlatform` is a Platform. A Platform will exist here
+    // only if there is a match found. E.g. if there is no YouTube match found,
+    // then neither `youtube` or `youtubeMusic` properties will exist here
+    [Platform]: {
+      // The unique ID for this entity. Use it to look up data about this entity
+      // at `entitiesByUniqueId[entityUniqueId]`
+      entityUniqueId: string,
+
+      // The URL for this match
+      url: string,
+
+      // The native app URI that can be used on mobile devices to open this
+      // entity directly in the native app
+      nativeAppUriMobile?: string,
+
+      // The native app URI that can be used on desktop devices to open this
+      // entity directly in the native app
+      nativeAppUriDesktop?: string,
+    },
+  },
+
+  // A collection of objects. Each key is a unique identifier for a streaming
+  // entity, and each value is an object that contains data for that entity,
+  // such as `title`, `artistName`, `thumbnailUrl`, etc.
+  entitiesByUniqueId: {
+    [entityUniqueId]: {
+      // This is the unique identifier on the streaming platform/API provider
+      id: string,
+
+      type: 'song' | 'album',
+
+      title?: string,
+      artistName?: string,
+      thumbnailUrl?: string,
+      thumbnailWidth?: number,
+      thumbnailHeight?: number,
+
+      // The API provider that powered this match. Useful if you'd like to use
+      // this entity's data to query the API directly
+      apiProvider: APIProvider,
+
+      // An array of platforms that are "powered" by this entity. E.g. an entity
+      // from Apple Music will generally have a `platforms` array of
+      // `["appleMusic", "itunes"]` since both those platforms/links are derived
+      // from this single entity
+      platforms: Platform[],
+    },
+  },
+};
+
+type Platform =
+  | 'spotify'
+  | 'itunes'
+  | 'appleMusic'
+  | 'youtube'
+  | 'youtubeMusic'
+  | 'google'
+  | 'googleStore'
+  | 'pandora'
+  | 'deezer'
+  | 'tidal'
+  | 'amazonStore'
+  | 'amazonMusic'
+  | 'soundcloud'
+  | 'napster'
+  | 'yandex'
+  | 'spinrilla';
+
+type APIProvider =
+  | 'spotify'
+  | 'itunes'
+  | 'youtube'
+  | 'google'
+  | 'pandora'
+  | 'deezer'
+  | 'tidal'
+  | 'amazon'
+  | 'soundcloud'
+  | 'napster'
+  | 'yandex'
+  | 'spinrilla';
+
+```
+
+### Example Response
 
 ```json
 {
@@ -300,9 +409,3 @@ curl -X GET "https://api.song.link/v1-alpha.1/links?url=spotify%3Atrack%3A0Jcij1
     }
 }
 ```
-
-**`linksByPlatform`** -- A collection of objects; each key is a platform, and each value is an object contains `url`, `nativeAppUriMobile` and `nativeAppUriDesktop` (each of which will exist if there's a direct native URI to open in the platform's native app, e.g. Spotify, Apple Music and iTunes) and `entityUniqueId`. You can use `entityUniqueId`to look up data about that specific entity in the `entitiesByUniqueId` data structure.
-
-If a match is not found for a specific platform, e.g. if there is no YouTube video for a song, then the platform will not be present in `linksByPlatform`.
-
-**`entitiesByUniqueId`** -- A collection of objects; each key is a unique identifier for a streaming entity, and each value is an object which contains data for that entity, including `title`, `artistName`, `thumbnailUrl` and other data. It also includes a property `platforms` which is an array of the platforms that are "powered" by this entity. For example, an iTunes entity will generally have a `platforms` array of `["appleMusic", "itunes"]` since both those platforms/links are derived from this single entity.
