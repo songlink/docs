@@ -2,6 +2,8 @@
 
 Our embed automatically finds and displays links to all the major streaming platforms for any song or album and comes in a variety of sizes. 
 
+To see all of the options and sizes for our embed, check out an example Songlink here: [https://song.link/i/1051394215?embed=1](https://song.link/i/1051394215?embed=1).
+
 ## Quickest implementation
 
 Find the song or album you'd like to embed by searching for it on [our web app](https://song.link). Then, on the Songlink page, click the **EMBED** button, located beneath the album art.
