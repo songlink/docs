@@ -1,6 +1,6 @@
 # Songlink Docs 💪
 
-Welcome to Songlink! Below you'll find more information about our different products and services. If you have questions, concerns, feedback, feature requests or just want to say hello 👋 please email us at [hello@song.link](mailto:hello@song.link). 
+Welcome to Songlink! Below you'll find more information about our different products and services. If you have questions, concerns, feedback, feature requests, or just want to say hello, please [email us](mailto:hello@song.link). 👋 
 
 - [What is Songlink?](what-is-songlink.md) - Learn about our core web service that automatically creates smart links for any song or album.
 - [FAQ](faq.md) - A collection of commonly asked (and answered!) questions.
