@@ -12,7 +12,7 @@ You should then see options for customizing the embed, including colors and size
 
 If you're having issues implementing the code into your website, feel free to reach out to us at [hello@song.link](mailto:hello@song.link) and we'll be happy to help you get set up.
 
-## Previous Embed
+## Previous embed version
 
 On 27 June 2019 we updated our embed. However, we did not replace the old experience. We will maintain the old version moving forward, though we won't be updating it or adding features. If you must implement the old experience, you can do so. The documentation for the older embed experience can be found [here](embed-original.md).
 
