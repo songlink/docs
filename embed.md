@@ -27,7 +27,7 @@ The Songlink embed is easy to implement via an `<iframe/>` and is implemented 
 To implement our embed to your blog or website, add an `<iframe/>` like this one:
 
 ```html
-<iframe width="100%" height="150" src="https://embed.song.link/?url=spotify:track:1eQBEelI2NCy7AUTerX0KS&theme=dark" fframeborder="0" allowtransparency allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation"></iframe>
+<iframe width="100%" height="150" src="https://embed.song.link/?url=spotify:track:1eQBEelI2NCy7AUTerX0KS&theme=dark" fframeborder="0" allowtransparency allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation allow-popups allow-popups-to-escape-sandbox"></iframe>
 ```
 
 To choose which song or album you want, simply modify the `?url=` parameter of the `src` of the iframe. The `?url=` parameter should be the URL of the song or album you want to embed, e.g. a Spotify track URL. We [support songs and albums from most major streaming platforms](FAQ.md). You can also pass in any valid Songlink URL, such as [https://song.link/s/4sPmO7WMQUAf45kwMOtONw](https://song.link/s/4sPmO7WMQUAf45kwMOtONw).
@@ -49,7 +49,7 @@ The small embed contains all the links to the streaming platforms, as well as a 
 To render a small embed, make sure the `height` of the `<iframe/>` is `52px`. Here is example code for a Compact Embed:
 
 ```html
-<iframe width="100%" height="52" src="https://embed.song.link/?url=spotify:track:1eQBEelI2NCy7AUTerX0KS" frameborder="0" allowtransparency allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation"></iframe>
+<iframe width="100%" height="52" src="https://embed.song.link/?url=spotify:track:1eQBEelI2NCy7AUTerX0KS" frameborder="0" allowtransparency allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation allow-popups allow-popups-to-escape-sandbox"></iframe>
 ```
 
 **MEDIUM**
@@ -57,7 +57,7 @@ To render a small embed, make sure the `height` of the `<iframe/>` is `52px
 The medium embed is displays the title, artist and album cover, along with the links below. To render this size, set the `height` of the `<iframe/>` between `124px`and `229px`. Here is example code for a medium size embed:
 
 ```html
-<iframe width="100%" height="150" src="https://embed.song.link/?url=spotify:track:1eQBEelI2NCy7AUTerX0KS" frameborder="0" allowtransparency allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation"></iframe>
+<iframe width="100%" height="150" src="https://embed.song.link/?url=spotify:track:1eQBEelI2NCy7AUTerX0KS" frameborder="0" allowtransparency allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation allow-popups allow-popups-to-escape-sandbox"></iframe>
 ```
 
 **LARGE**
@@ -67,13 +67,13 @@ The large ewmbed has it all: a prominent, featured music video supported by link
 To render this size, set the `height` of the `<iframe/>` to be `230px` or larger. Here is an example code:
 
 ```html
-<iframe width="100%" height="414" src="https://embed.song.link/?url=spotify:track:1eQBEelI2NCy7AUTerX0KS" frameborder="0" allowtransparency allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation"></iframe>
+<iframe width="100%" height="414" src="https://embed.song.link/?url=spotify:track:1eQBEelI2NCy7AUTerX0KS" frameborder="0" allowtransparency allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation allow-popups allow-popups-to-escape-sandbox"></iframe>
 ```
 
 For the large size, we recommend the `height` be `width * 0.5625 + 52` which will render the YouTube video in the correct 9:16 ratio. You can use a parent `<div/>` to help you achieve this, like so:
 
 ```html
-<div style="max-width:100%;"><div style="position:relative;padding-bottom:calc(56.25% + 52px);height: 0;"><iframe style="position:absolute;top:0;left:0;" width="100%" height="100%" src="https://embed.song.link/?url=https%3A%2F%2Fsong.link%2Fus%2Fi%2F1182062656&theme=dark" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation"></iframe></div></div>
+<div style="max-width:100%;"><div style="position:relative;padding-bottom:calc(56.25% + 52px);height: 0;"><iframe style="position:absolute;top:0;left:0;" width="100%" height="100%" src="https://embed.song.link/?url=https%3A%2F%2Fsong.link%2Fus%2Fi%2F1182062656&theme=dark" frameborder="0" allowfullscreen sandbox="allow-same-origin allow-scripts allow-presentation allow-popups allow-popups-to-escape-sandbox"></iframe></div></div>
 ```
 
 ## Converting YouTube embeds into Songlink embeds
