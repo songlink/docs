@@ -199,6 +199,19 @@ type APIProvider =
 
 ```
 
+### Why the weird keys in `entitiesByUniqueId`?
+Great question. 😅 After working with this data internally for a couple years, this is the structure we've landed on as being the most scalable and flexible. Admittedly, I'm still working on explaining it concisely and precisely, but here goes:
+
+The keys in `linksByPlatform` are constants, which is easier than the dynamic keys in `entitiesByUniqueId`. We chose constants here for two reasons:
+
+1. The links are the main data (I think) that most developers want, so this makes accessing it easier.
+
+2. The point of `linksByPlatform` (as of right now) is that we find exactly one match per platform. However, one-link-per-platform not be sustainable in the long-term. For instance, what happens when we get more advanced and find all the matches for a given platform, e.g. the YouTube official music video as well as the YouTube Music generic track/video? We'll probably have to make the values in `linksByPlatform` arrays (or possibly make new platform keys, e.g. `youtubeOfficialVideo`).
+
+Now, if we use constant keys for `entitiesByUniqueId`, similar to `linksByPlatform`, then what would we do in cases where a single entity is powered by/represented by multiple links/platforms, e.g. YouTube and YouTube Music? Would we have just one entity at the key `youtube`? Or would we also have a key for `youtubeMusic`, which will often be the exact same entity as `youtube`? This would lead to data being duplicated across multiple keys. 
+
+It's also possible the underlying entity is not the same, and this is definitely something we'll be doing more in the future as we advance our matching capabilities. The current strategy of `entitiesByUniqueId` will work well here by containing the data for non-duplicated, unique entities that can then be referenced or "power" other data we care about, e.g. `linksByPlatform`. This allows a single YouTube entity, e.g. `YOUTUBE_VIDEO::123` to power both `youtube` and `youtubeMusic` properties in `linksByPlatform`, but also allows us to have two distinct entities powering these platforms, e.g. `YOUTUBE_VIDEO::123` is the official video for the `youtube` link and `YOUTUBE_VIDEO::456` is the auto-generated video more suitable for the `youtubeMusic` link.
+
 ### Example Response
 
 ```json
