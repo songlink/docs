@@ -53,3 +53,18 @@ That ugly link above? It can now be something like:
 [https://song.link/Hello](https://song.link/Hello)
 
 These custom, pretty links provide an instant connection, drive more attention to the link and better reflect your brand and vibes. 😎
+
+### How can I avoid 429 Too Many Requests error when I add many embeds to my website?
+
+Unfortunately, we must impose rate limits on all of our services because we ourselves have to abide by rate limits from our data sources, e.g. Spotify, YouTube, etc. 
+
+The current rate limit for our embed is 60 per minute per IP address. This means that if you load 61 embeds on a single page, the 61st embed will trigger a 429 error and not load properly. 
+
+If you want to display more than 60 embeds, we suggest breaking them up in some way so they don't all load at the same time. This will also increase the speed of the page load, since the user's browser must load and handle all of the embeds if they all load at the same time. 
+
+There are a couple ways to accomplish this: 
+
+- You can place each embed (or groups of embeds) on their own page or behind a click (so only load the embed after the user clicks to view it). 
+- You can "lazy load" the embeds, so that only first few load at first, then once the user scrolls down enough, you load the next group of them. 
+
+There are likely many ways to build this that helps both us and the user provide a smooth experience. Please reach out if you'd like to discuss your specific use case.
