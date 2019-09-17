@@ -8,3 +8,4 @@ Welcome to Songlink! Below you'll find more information about our different prod
 - [API](api-v1-alpha.1.md) - Documentation for our public API, which can help you build music apps.
 - [Redirect URLs](redirect-urls.md) - URLs that automatically redirect your users to a specified streaming platform.
 - [Refunds](refunds.md) - Learn about our refund policy for our paid products.
+- [iOS Shortcuts](ios-shortcuts.md) - Links to handy iOS Shortcuts for creating and sharing Songlinks.
