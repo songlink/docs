@@ -1,6 +1,6 @@
 # iOS Shortcuts
 
-We know of a few iOS Shortcuts via the [Shortcuts app](https://apps.apple.com/us/app/shortcuts/id915249334) that can be handy for creating and sharing Songlinks. If you have a specific use case, these might be great starting points for building your own 
+We know of a few iOS Shortcuts via the [Shortcuts app](https://apps.apple.com/us/app/shortcuts/id915249334) that can be handy for creating and sharing Songlinks. If you have a specific use case, these might be great starting points for building your own.
 
 ### [Go To Songlink](https://www.icloud.com/shortcuts/5c1c62adcec7451bad67badaf8bd2ea7)
 
