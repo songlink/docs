@@ -9,3 +9,4 @@ Welcome to Songlink! Below you'll find more information about our different prod
 - [Redirect URLs](redirect-urls.md) - URLs that automatically redirect your users to a specified streaming platform.
 - [Refunds](refunds.md) - Learn about our refund policy for our paid products.
 - [iOS Shortcuts](ios-shortcuts.md) - Links to handy iOS Shortcuts for creating and sharing Songlinks.
+- [Supported automated entities](supported-entities.md) - A list of the entities we support via automated matching.
