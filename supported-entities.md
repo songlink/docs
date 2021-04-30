@@ -1,40 +1,11 @@
-# Supported Entities
+# Supported platforms
 
-Our automated matching algorithms support the following entities on the following platforms:
+### Last updated 2020-04-30
 
-### Songs (Tracks)
-- Spotify
-- Apple Music 
-- iTunes
-- YouTube (videos)
-- YouTube Music
-- Google Play Music
-- Google Play Store
-- Pandora
-- Deezer
-- TIDAL
-- Amazon Music
-- Amazon.com
-- SoundCloud
-- Napster
-- Yandex.Music
-- Spinrilla
+The latest version of this help doc can be found here: https://www.notion.so/e00a437c10de43fb9a6364505e9539e9
 
-### Albums
+Hello! 👋
 
-- Spotify
-- Apple Music 
-- iTunes
-- YouTube (playlists)
-- YouTube Music
-- Google Play Music
-- Google Play Store
-- Pandora
-- Deezer
-- TIDAL
-- Amazon Music
-- Amazon.com
-- SoundCloud (playlists and albums)
-- Napster
-- Yandex.Music
-- Spinrilla
+We changed our name to Songlink/Odesli because the "song" in Songlink had become too limiting. However, song.link URLs haven't gone anywhere, and neither have our services like our embed and API. See the above link for the most up-to-date help articles and FAQs.
+
+Cheers! 🎉
